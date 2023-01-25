@@ -22,7 +22,7 @@
         <h1 id="city">New York</h1>
         <span class="weather__span" id="date">Monday 17:09</span>
         <div class="inner flex row">
-            <div class="temperature-wrap col-5">
+            <div class="temperature-wrap col-6">
                 <div class="temp-block">
                     <img class="temp-img"
                         src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-night.png"
@@ -41,9 +41,19 @@
                 <span>Wind: <span id="wind">6</span> km/h</span>
             </div>
         </div>
-        <div class="forecast">
-
-        </div>
+        <ul class="forecast row">
+            <li class="col-2 d-flex flex-column align-items-center">
+                <span>Mon</span>
+                <img class="temp-img-small"
+                    src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-night.png" alt="Sky icon">
+                <div class="temp-inner">
+                    <span class="temp-max" id="temp-max">4</span>
+                    <span class="units">°</span>
+                    <span class="temp-min" id="temp-min">4</span>
+                    <span class="units">°</span>
+                </div>
+            </li>
+    </div>
     </div>
     <div class="link-wrap">
         <a href="https://github.com/bohdanalu/weather_forecast/tree/dev" target="_blank">Open-sourse code</a>

@@ -30,10 +30,6 @@ h1 {
   color: #1d1d43;
 }
 
-span {
-  padding: 0 5px;
-}
-
 a {
   text-decoration: none;
   text-transform: uppercase;
@@ -43,6 +39,10 @@ a {
 
 a:hover {
   color: violet;
+}
+
+ul {
+  list-style: none;
 }
 
 .weather__span {
@@ -94,8 +94,4 @@ a:hover {
 .link-wrap {
   max-width: 425px;
   margin: 15px auto;
-}
-
-.feels {
-  padding: 0;
 }
