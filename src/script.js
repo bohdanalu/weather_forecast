@@ -1,4 +1,4 @@
-let apiKey = "ca7fbad26013d3ec86767b6a85456620";
+let apiKey = "7257784ffef8033bt527ba3e0e2ba0fo";
 const form = document.querySelector("#search-form");
 const inputSearch = document.querySelector("#city-input");
 const locationBtn = document.querySelector("#current-location-button");
@@ -20,33 +20,26 @@ let days = [
 let city = "";
 
 function getTemperature(response) {
+  console.log(response.data);
   const tempEl = document.querySelector("#temperature");
   const windEl = document.querySelector("#wind");
   const humidityEl = document.querySelector("#humidity");
-  city = response.data.name;
+  const descrEl = document.querySelector("#description");
+  city = response.data.city;
   h1.innerHTML = city;
-  tempEl.innerHTML = `${Math.round(response.data.main.temp)}`;
+  tempEl.innerHTML = `${Math.round(response.data.temperature.current)}`;
   windEl.innerHTML = `${Math.round(response.data.wind.speed)}`;
-  humidityEl.innerHTML = `${Math.round(response.data.main.humidity)}`;
+  humidityEl.innerHTML = `${Math.round(response.data.temperature.humidity)}`;
+  descrEl.innerHTML = `${response.data.condition.description}`;
 }
 
 function getSearchValue(e) {
   e.preventDefault();
   city = inputSearch.value;
   inputSearch.value = "";
-  let urlCity = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(urlCity).then(getTemperature);
-}
 
-function getLocation(e) {
-  e.preventDefault();
-  function getCurentLocation(position) {
-    let lat = position.coords.latitude;
-    let lon = position.coords.longitude;
-    let urlPos = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-    axios.get(urlPos).then(getTemperature);
-  }
-  navigator.geolocation.getCurrentPosition(getCurentLocation);
+  let urlCity = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(urlCity).then(getTemperature);
 }
 
 function enterDay(day, hour) {
@@ -60,4 +53,3 @@ function enterDay(day, hour) {
 
 enterDay(day, hour);
 form.addEventListener("submit", getSearchValue);
-locationBtn.addEventListener("click", getLocation);

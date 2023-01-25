@@ -5,29 +5,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="src/style.css">
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <title>Weather forecast</title>
 </head>
 
 <body>
-    <div class="weather-app">
-        <form class="search-form form" id="search-form">
+    <div class="weather-app container">
+        <form class="search-form form row" id="search-form">
             <input type="search" placeholder="Type a city.." autofocus="on" autocomplete="off" id="city-input"
-                class="form__input" />
-            <input type="submit" value="Search" class="form__input" />
-            <button class="form__btn" id="current-location-button">
-                Current
-            </button>
+                class="form__input col-8" />
+            <input type="submit" value="Search" class="form__input col-3" />
         </form>
         <h1 id="city">New York</h1>
-        <span class="weather__span" id="date">Monday 17:09</span>
-        <div class="inner">
-            <div class="temperature-wrap">
+
+        <div class="inner row">
+            <div class="temperature-wrap col-4">
+                <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-night.png" alt="Sky icon">
                 <span class="temperature" id="temperature">4</span>
                 <span class="units">°C</span>
+                <span class="description" id="description">cloudy</span>
+                <span class="weather__span" id="date">Monday 17:09</span>
             </div>
-            <div class="weather__wrap">
+            <div class="weather__wrap col-6">
                 <span>Humidity: <span id="humidity">91</span>%</span>
                 <span>Wind: <span id="wind">6</span> km/h</span>
             </div>
@@ -37,7 +39,9 @@
         <a href="https://github.com/bohdanalu/weather_forecast/tree/dev" target="_blank">Open-sourse code</a>
         <span>by Bohdana Lutska</span>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
     <script src="src/script.js"></script>
 </body>
 
