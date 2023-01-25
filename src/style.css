@@ -30,7 +30,16 @@
   span {
     padding: 0 5px;
   }
+
+  a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: blue;
+  }
   
+  a:hover {
+    color: violet;
+  }
   .weather__span{
     display: block;
   }
@@ -69,4 +78,5 @@
   flex-direction: column;
   justify-content: start;
   }
+
   
