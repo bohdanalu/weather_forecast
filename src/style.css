@@ -80,4 +80,9 @@
   justify-content: start;
   }
 
+  .link-wrap {
+    max-width: 425px;
+    margin: 15px auto;
+  }
+
   
