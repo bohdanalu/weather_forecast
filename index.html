@@ -9,7 +9,28 @@
 </head>
 
 <body>
-    hello world
+    <div class="weather-app">
+        <form class="search-form form" id="search-form">
+            <input type="search" placeholder="Type a city.." autofocus="on" autocomplete="off" id="city-input"
+                class="form__input" />
+            <input type="submit" value="Search" class="form__input" />
+            <button class="form__btn" id="current-location-button">
+                Current
+            </button>
+        </form>
+        <h1 id="city">New York</h1>
+        <span class="weather__span" id="date">Monday 17:09</span>
+        <div class="inner">
+            <div class="temperature-wrap">
+                <span class="temperature" id="temperature">4</span>
+                <span class="units">°C</span>
+            </div>
+            <div class="weather__wrap">
+                <span>Humidity: <span id="humidity">91</span>%</span>
+                <span>Wind: <span id="wind">6</span> km/h</span>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
