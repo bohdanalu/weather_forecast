@@ -14,25 +14,35 @@
 
 <body>
     <div class="weather-app container">
-        <form class="search-form form row" id="search-form">
+        <form class="search-form form row d-flex justify-content-center" id="search-form">
             <input type="search" placeholder="Type a city.." autofocus="on" autocomplete="off" id="city-input"
                 class="form__input col-8" />
             <input type="submit" value="Search" class="form__input col-3" />
         </form>
         <h1 id="city">New York</h1>
-
-        <div class="inner row">
-            <div class="temperature-wrap col-4">
-                <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-night.png" alt="Sky icon">
-                <span class="temperature" id="temperature">4</span>
-                <span class="units">°C</span>
-                <span class="description" id="description">cloudy</span>
-                <span class="weather__span" id="date">Monday 17:09</span>
+        <span class="weather__span" id="date">Monday 17:09</span>
+        <div class="inner flex row">
+            <div class="temperature-wrap col-5">
+                <div class="temp-block">
+                    <img class="temp-img"
+                        src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-night.png"
+                        alt="Sky icon">
+                    <span class="temperature" id="temperature">4</span>
+                    <span class="units">°C</span>
+                </div>
+                <div class="descr-block">
+                    <span class="description" id="description">Cloudy</span>
+                    <span>/ Feels like</span>
+                    <span class="feels" id="feels">4</span><span class="units">°C /</span>
+                </div>
             </div>
             <div class="weather__wrap col-6">
                 <span>Humidity: <span id="humidity">91</span>%</span>
                 <span>Wind: <span id="wind">6</span> km/h</span>
             </div>
+        </div>
+        <div class="forecast">
+
         </div>
     </div>
     <div class="link-wrap">

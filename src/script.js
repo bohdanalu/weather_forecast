@@ -25,12 +25,14 @@ function getTemperature(response) {
   const windEl = document.querySelector("#wind");
   const humidityEl = document.querySelector("#humidity");
   const descrEl = document.querySelector("#description");
+  const feelsEl = document.querySelector("#feels");
   city = response.data.city;
   h1.innerHTML = city;
   tempEl.innerHTML = `${Math.round(response.data.temperature.current)}`;
   windEl.innerHTML = `${Math.round(response.data.wind.speed)}`;
   humidityEl.innerHTML = `${Math.round(response.data.temperature.humidity)}`;
   descrEl.innerHTML = `${response.data.condition.description}`;
+  feelsEl.innerHTML = `${Math.round(response.data.temperature.feels_like)}`;
 }
 
 function getSearchValue(e) {
@@ -48,7 +50,7 @@ function enterDay(day, hour) {
     minute = `0${minute}`;
   }
 
-  dateEl.innerHTML = `${day} ${hour}.${minute}`;
+  dateEl.innerHTML = `${day} ${hour}:${minute}`;
 }
 
 enterDay(day, hour);
