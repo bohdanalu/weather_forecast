@@ -50,7 +50,6 @@ function formatDay(timestamp) {
 function getTempForecast(response) {
   let daysforecast = response.data.daily;
   const forecastEl = document.querySelector("#forecast");
-  console.log(daysforecast);
   let forecast = "";
 
   daysforecast.forEach((day, index) => {
@@ -73,7 +72,6 @@ function getTempForecast(response) {
          <span class="units">°</span>
       </div>
       </li>`;
-      //   console.log(forecast);
     }
   });
 
