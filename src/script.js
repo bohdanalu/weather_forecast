@@ -8,7 +8,7 @@ let date = new Date();
 let day = date.getDay();
 let hour = date.getHours();
 let minute = date.getMinutes();
-let days = [
+const days = [
   "Sunday",
   "Monday",
   "Tuesday",
@@ -83,6 +83,9 @@ function getTempForecast(response) {
 function getSearchValue(e) {
   e.preventDefault();
   city = inputSearch.value;
+  if (!inputSearch.value) {
+    city = "Kyiv";
+  }
   inputSearch.value = "";
 
   let urlCity = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
@@ -99,6 +102,6 @@ function enterDay(day, hour) {
 
   dateEl.innerHTML = `${day} ${hour}:${minute}`;
 }
-
+document.addEventListener("DOMContentLoaded", getSearchValue);
 enterDay(day, hour);
 form.addEventListener("submit", getSearchValue);
