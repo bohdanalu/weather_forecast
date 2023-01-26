@@ -20,19 +20,64 @@ let days = [
 let city = "";
 
 function getTemperature(response) {
-  console.log(response.data);
+  let data = response.data;
   const tempEl = document.querySelector("#temperature");
   const windEl = document.querySelector("#wind");
   const humidityEl = document.querySelector("#humidity");
   const descrEl = document.querySelector("#description");
   const feelsEl = document.querySelector("#feels");
-  city = response.data.city;
+  const iconEl = document.querySelector("#temp-img");
+  city = data.city;
   h1.innerHTML = city;
-  tempEl.innerHTML = `${Math.round(response.data.temperature.current)}`;
-  windEl.innerHTML = `${Math.round(response.data.wind.speed)}`;
-  humidityEl.innerHTML = `${Math.round(response.data.temperature.humidity)}`;
-  descrEl.innerHTML = `${response.data.condition.description}`;
-  feelsEl.innerHTML = `${Math.round(response.data.temperature.feels_like)}`;
+  tempEl.innerHTML = `${Math.round(data.temperature.current)}`;
+  windEl.innerHTML = `${Math.round(data.wind.speed)}`;
+  humidityEl.innerHTML = `${Math.round(data.temperature.humidity)}`;
+  descrEl.innerHTML = `${data.condition.description}`;
+  feelsEl.innerHTML = `${Math.round(data.temperature.feels_like)}`;
+  iconEl.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${data.condition.icon}.png`
+  );
+}
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fry", "Sat"];
+  return days[day];
+}
+
+function getTempForecast(response) {
+  let daysforecast = response.data.daily;
+  const forecastEl = document.querySelector("#forecast");
+  console.log(daysforecast);
+  let forecast = "";
+
+  daysforecast.forEach((day, index) => {
+    if (index < 6) {
+      forecast += ` 
+      <li class="forecast-item col-2 d-flex flex-column align-items-center">
+      <span class="forecast-day">${formatDay(day.time)}</span>
+      <img class="forecast-img"
+         src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+           day.condition.icon
+         }.png" alt="Sky icon">
+      <div class="temp-inner">
+         <span class="temp-max" id="temp-max">${Math.round(
+           day.temperature.maximum
+         )}</span>
+         <span class="units">°</span>
+         <span class="temp-min" id="temp-min">${Math.round(
+           day.temperature.minimum
+         )}</span>
+         <span class="units">°</span>
+      </div>
+      </li>`;
+      //   console.log(forecast);
+    }
+  });
+
+  forecastEl.innerHTML = forecast;
 }
 
 function getSearchValue(e) {
@@ -42,6 +87,8 @@ function getSearchValue(e) {
 
   let urlCity = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(urlCity).then(getTemperature);
+  let urlforecast = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+  axios.get(urlforecast).then(getTempForecast);
 }
 
 function enterDay(day, hour) {

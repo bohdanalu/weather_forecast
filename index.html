@@ -24,7 +24,7 @@
         <div class="inner flex row">
             <div class="temperature-wrap col-6">
                 <div class="temp-block">
-                    <img class="temp-img"
+                    <img class="temp-img" id="temp-img"
                         src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-night.png"
                         alt="Sky icon">
                     <span class="temperature" id="temperature">4</span>
@@ -41,10 +41,10 @@
                 <span>Wind: <span id="wind">6</span> km/h</span>
             </div>
         </div>
-        <ul class="forecast row">
-            <li class="col-2 d-flex flex-column align-items-center">
-                <span>Mon</span>
-                <img class="temp-img-small"
+        <ul class="forecast row d-flex justify-content-between" id="forecast">
+            <!-- <li class="col-2 d-flex flex-column align-items-center">
+                <span class="forecast-day">Mon</span>
+                <img class="forecast-img"
                     src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-night.png" alt="Sky icon">
                 <div class="temp-inner">
                     <span class="temp-max" id="temp-max">4</span>
@@ -52,7 +52,7 @@
                     <span class="temp-min" id="temp-min">4</span>
                     <span class="units">°</span>
                 </div>
-            </li>
+            </li> -->
     </div>
     </div>
     <div class="link-wrap">
